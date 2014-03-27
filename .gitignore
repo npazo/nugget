@@ -1,0 +1,8 @@
+local_test/jquery.min.js
+local_test/nugget.css
+local_test/nugget.js
+local_test/nugget.rb
+local_test/thumbs.rb
+.DS_Store
+.ruby-version
+jquery.min.js

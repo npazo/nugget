@@ -1,0 +1,33 @@
+.shell {
+  border: 1px solid rgba(255,255,255,0);
+  position:relative; 
+  margin-left:10px; 
+  margin-bottom:100px; 
+}
+
+.turtle {
+  position:absolute; 
+  left:0;
+  top:0;
+}
+
+.nugget {
+  display:block;
+  border:0;
+  text-decoration:none;
+  float:left;
+  border-right:1px solid #fff;
+
+}
+
+.last {
+  border:0;
+}
+
+.nugget img {
+  display:block;
+  border:0;
+  max-width:100px;
+  max-height:100px;
+  cursor:pointer;
+}
