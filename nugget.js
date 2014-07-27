@@ -1,6 +1,5 @@
-$(document).ready(function(){
-    $('nugget_img').hover(function() {
-
+$(document).ready(function() {
+    $('.nugget_img').hover(function() {
       var newWidth = $(this).width() * 3;
       var newHeight = $(this).height() * 3;
 
@@ -13,17 +12,19 @@ $(document).ready(function(){
         maxHeight: "none"
         });
     
-    }, function() {
+    }, 
+function() {
         $(this).css({
           width: "initial",
           height: "initial",
           maxWidth: "100px",
           maxHeight: "100px",
-          zIndex: 0,
+          zIndex: 0
           });
     });
-    
-    $('nugget_img').click(function() {
+
+
+    $('.nugget_img').click(function() {
 
       var newWidth = $(this).width() * 3;
       var newHeight = $(this).height() * 3;
@@ -33,8 +34,9 @@ $(document).ready(function(){
           height: "initial",
           maxWidth: "100px",
           maxHeight: "100px",
-          zIndex: 0,
+          zIndex: 0
           });
     
     });
+
 });
