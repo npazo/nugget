@@ -6,7 +6,7 @@ $thumbs_dir = "/path/to/thumbnails"
 $full_dir = "/path/to/photo_export/"
 
 def read_dir (dir, output, index, full_dir_path)
-  count = 0
+  count = 0		# keeps track of pictures in a row so it knows when to create a new one
   pic_count = 0
   first_month = true
   first_year = true
@@ -19,19 +19,19 @@ def read_dir (dir, output, index, full_dir_path)
       output << "<a class=\"nugget\" href=\"" + full_dir_path + File.basename(f) + "\"><img class=\"nugget_img\" src=\"" + f + "\"/></a>"
       count += 1
       pic_count += 1
-      if count == 7
+      if count == 7		# time to end the row
         output << "</div></div>"
         count = 0
       end
     elsif File.directory?(f)
 
-      if File.basename(f).include? "-"
+      if File.basename(f).include? "-"	# this is how it checks for a month folder
         if count > 0 
           count = 0
         end
       
         if !first_month
-           output << "</div></div>"
+           output << "</div></div>"	# end the month as long as there is one
         end
         output << "<h2>" + File.basename(f) + "</h2>"
        
@@ -42,6 +42,11 @@ def read_dir (dir, output, index, full_dir_path)
          
         if !first_year
           output << "</div></div>"
+          output << "</div>"
+          output << "<div id=\"nav\">"
+          output << "<div id=\"prev\"><a href=\"" + (File.basename(f).to_i - 1).to_s + ".html" + "\"><< Prev</a></div>"
+          output << "<div id=\"next\"><a href=\"" + File.basename(f) + ".html" + "\">Next >></a></div>"
+          output << "</div>"
           output.close
         end
   
@@ -54,7 +59,8 @@ def read_dir (dir, output, index, full_dir_path)
         output <<   "<link rel=\"stylesheet\" type=\"text/css\" href=\"nugget.css\"/>"
         output << "</head>"
         output << "<body>"
-
+        output << "<div id=\"main\">"
+        
   
         output << "<h1>" + File.basename(f) + "</h1>"
         first_year = false
@@ -77,6 +83,7 @@ index << "<body>"
 
 read_dir($thumbs_dir, output, index, $full_dir)
 
+# close the last month
 output << "</div></div></body>"
 output << "</html>"
 
