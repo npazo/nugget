@@ -9,11 +9,12 @@ $output_dir = "/destination/for/thumbnails/"
 def read_dir (dir, output)
   Dir.glob("#{dir}/*").each_with_object({}) do |f, h|
     if File.file?(f)
-        if File.extname(f).downcase == ".jpg"
+        if %w(.jpg .jpeg .png).include? File.extname(f).downcase
           if !File.exists?(output + File.basename(f))
             image = MiniMagick::Image.open(f)   
             image.auto_orient            
   
+	
             if image[:width].to_f/image[:height].to_f > (4.0/3.0) # shrink width
               width = image[:height] * 1.333
               height = image[:height]

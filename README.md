@@ -51,6 +51,7 @@ The CSS for the picture pages is very plain. Modifying any existing CSS is at yo
 
 ## Future Wishlist
 
-- More file types (important)
+- More file types? (.jpg, .jpeg, .png currently supported)
 - dynamic pictures per row
 - single config file
+- handle movie files somehow
